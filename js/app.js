@@ -4,34 +4,34 @@ document.getElementById('form').addEventListener('submit',(e)=>{
     let date = document.getElementById("date").value;
     let number = document.getElementById("number").value;
     let information = document.getElementById("information").value;
-    createUser(name,place,date,number,information);
+    createEvento(name,place,date,number,information);
     e.preventDefault();
 });
-var users=[];
+var eventos=[];
 
-function createUser(name,place,date,number, information){
-    var user={
+function createEvento(name,place,date,number, information){
+    var evento={
         name:name,
         place:place,
         date: date,
         number: number,
         information: information
     }
-    users.push(user);
-    readUser();
-    console.log(users);
+    eventos.push(evento);
+    readEvento();
+    console.log(eventos);
     document.getElementById('form').reset();
 }
-function readUser(){
-    var userhtml=document.getElementById('user');
-    userhtml.innerHTML='';
-    for(var i=0; i<users.length; i++){
-        userhtml.innerHTML+= `<div class="eventoCreado"><h2>Evento Creado</h2><p>Name: ${users[i].name}</p><br>
-        <p>Lugar: ${users[i].place}</p><br>
-        <p>Fecha: ${users[i].date}</p><br>
-        <p>Participantes: ${users[i].number}</p><br>
-        <p>Actividades: ${users[i].information}</p><br>
-        <button class="edit" onClick="updateUsers('${i})">Edit</button>
+function readEvento(){
+    var eventohtml=document.getElementById('evento');
+    eventohtml.innerHTML='';
+    for(var i=0; i<eventos.length; i++){
+        eventohtml.innerHTML+= `<div class="eventoCreado"><h2>Evento Creado</h2><p>Name: ${eventos[i].name}</p><br>
+        <p>Lugar: ${eventos[i].place}</p><br>
+        <p<Fecha: ${eventos[i].date}</p><br>
+        <p>Participantes: ${eventos[i].number}</p><br>
+        <p>Actividades: ${eventos[i].information}</p><br>
+        <button class="edit" onClick="updateEventos('${i})">Edit</button>
         <button class="remove" onClick="remove('${i})">Delete</button> `
     }
 }
